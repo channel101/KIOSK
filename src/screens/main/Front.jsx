@@ -127,7 +127,7 @@ const Front = ({ navigation }) => {
       try {
         setConfirmVisible(false);
         setInputStoreNumber('');
-        await resetDeviceCode();
+        await resetDeviceCode(storeNumber);
         const { signOutUser } = require('../../services/auth');
         await signOutUser();
       } catch (e) {
@@ -174,7 +174,13 @@ const Front = ({ navigation }) => {
       </View>
 
       {}
-      <Modal visible={confirmVisible} transparent animationType="fade">
+      <Modal
+        visible={confirmVisible}
+        presentationStyle="overFullScreen"
+        transparent
+        statusBarTranslucent
+        animationType="fade"
+      >
         <View style={styles.modalOverlay}>
           <View style={styles.modalBox}>
             <Text h4>가게 번호 확인</Text>

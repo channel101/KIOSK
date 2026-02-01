@@ -51,7 +51,6 @@ export async function signInWithGoogle() {
     if (error) throw error;
     return data;
   } catch (error) {
-    console.error('❌ Google 로그인 실패:', error);
     throw error;
   }
 }

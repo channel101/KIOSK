@@ -3,49 +3,59 @@ const fs = require('fs');
 const path = require('path');
 
 let strip;
-try{
+try {
   strip = require('strip-comments');
-}catch(e){
-  console.error('Please install strip-comments: npm install --save-dev strip-comments');
+} catch (e) {
+  console.error(
+    'Please install strip-comments: npm install --save-dev strip-comments',
+  );
   process.exit(1);
 }
 
-const IGNORES = new Set(['node_modules', 'android', 'ios', 'build', 'dist', 'windows', '.git']);
+const IGNORES = new Set([
+  'node_modules',
+  'android',
+  'ios',
+  'build',
+  'dist',
+  'windows',
+  '.git',
+]);
 let modified = 0;
 
-function shouldIgnore(fullPath){
+function shouldIgnore(fullPath) {
   const parts = fullPath.split(path.sep);
   return parts.some(p => IGNORES.has(p));
 }
 
-function walkAndProcess(dir){
+function walkAndProcess(dir) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
-  for (const ent of entries){
+  for (const ent of entries) {
     const full = path.join(dir, ent.name);
     if (shouldIgnore(full)) continue;
-    if (ent.isDirectory()){
+    if (ent.isDirectory()) {
       walkAndProcess(full);
       continue;
     }
     if (!full.endsWith('.js') && !full.endsWith('.jsx')) continue;
-    try{
+    try {
       const original = fs.readFileSync(full, 'utf8');
       const stripped = strip(original);
-      if (stripped !== original){
+      if (stripped !== original) {
         fs.writeFileSync(full, stripped, 'utf8');
         modified++;
         console.log('Stripped comments:', path.relative(process.cwd(), full));
       }
-    }catch(e){
+    } catch (e) {
       console.error('Error processing', full, e && e.message);
     }
   }
 }
 
-try{
+try {
   walkAndProcess(process.cwd());
   console.log(`Done. Files modified: ${modified}`);
-}catch(e){
+} catch (e) {
   console.error('Fatal error', e && e.message);
   process.exit(1);
 }

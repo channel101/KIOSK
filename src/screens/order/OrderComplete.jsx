@@ -121,7 +121,6 @@ const OrderComplete = ({ navigation }) => {
       clearCart();
       setSuccessVisible(true);
     } catch (e) {
-      console.error('sendOrder error:', e);
       setErrorVisible(true);
     } finally {
       setLoading(false);
@@ -203,7 +202,13 @@ const OrderComplete = ({ navigation }) => {
         </View>
       </View>
       {}
-      <Modal transparent visible={successVisible}>
+      <Modal
+        transparent
+        animationType="fade"
+        presentationStyle="overFullScreen"
+        statusBarTranslucent
+        visible={successVisible}
+      >
         <View style={styles.modalOverlay}>
           <View style={styles.modalBox}>
             <Text h4>주문 완료</Text>
@@ -222,7 +227,13 @@ const OrderComplete = ({ navigation }) => {
       </Modal>
 
       {}
-      <Modal transparent visible={errorVisible}>
+      <Modal
+        animationType="fade"
+        transparent
+        presentationStyle="overFullScreen"
+        statusBarTranslucent
+        visible={errorVisible}
+      >
         <View style={styles.modalOverlay}>
           <View style={styles.modalBox}>
             <Text h4>전송 실패</Text>

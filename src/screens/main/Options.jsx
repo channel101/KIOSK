@@ -17,25 +17,27 @@ const Options = ({ route, navigation }) => {
 
   const { addToCart } = useCart();
 
-    const [count, setCount] = useState(1);
+  const [count, setCount] = useState(1);
 
-    const [selectedOptions, setSelectedOptions] = useState(() => {
+  const [selectedOptions, setSelectedOptions] = useState(() => {
     const result = {};
     options.forEach(opt => {
       result[opt.key] =
-        opt.type === 'range' ? opt.default ?? opt.min ?? 0 : opt.default ?? 0;
+        opt.type === 'range'
+          ? (opt.default ?? opt.min ?? 0)
+          : (opt.default ?? 0);
     });
     return result;
   });
 
-    const updateOption = (key, value) => {
+  const updateOption = (key, value) => {
     setSelectedOptions(prev => ({
       ...prev,
       [key]: value,
     }));
   };
 
-    const optionPrice = useMemo(() => {
+  const optionPrice = useMemo(() => {
     let sum = 0;
     options.forEach(opt => {
       if (opt.type === 'range') {
@@ -47,7 +49,7 @@ const Options = ({ route, navigation }) => {
 
   const totalPrice = (Number(price) + optionPrice) * count;
 
-    const handleAdd = () => {
+  const handleAdd = () => {
     const normalizedOptions = options.map(opt => ({
       key: opt.key,
       name: opt.name,

@@ -86,16 +86,8 @@ export default function Login({ navigation }) {
   const handleGoogleLogin = async () => {
     try {
       setGoogleLoading(true);
-      console.log('🔄 Google 로그인 시작');
       await signInWithGoogle();
-      console.log('✅ Google 로그인 성공');
     } catch (e) {
-      console.error('❌ 에러 상세:', {
-        message: e.message,
-        status: e.status,
-        code: e.code,
-        fullError: JSON.stringify(e, null, 2),
-      });
       Toast.show({
         type: 'error',
         text1: 'Google 로그인 실패',

@@ -79,7 +79,12 @@ const Main = ({ navigation }) => {
           }
         });
       } catch (error) {
-        console.error('Menu load error:', error);
+        Toast.show({
+          type: 'error',
+          text1: '메뉴 로드 실패',
+          text2: error.error || '알 수 없는 에러',
+          visibilityTime: 5000,
+        });
       }
     };
 

@@ -68,13 +68,10 @@ export const useAuth = navigationRef => {
 
         const storeNumber = storeNumberRef.current;
         if (!storeNumber) {
-          console.warn('[useAuth] storeNumber not ready');
           return;
         }
 
         reRegisteringRef.current = true;
-        console.log('[useAuth] device missing → re-register', storeNumber);
-
         const { deviceCode, deviceName } = await getDeviceCode();
         await ensureDeviceCodeInDatabase(storeNumber, deviceCode, deviceName);
         lastStatusRef.current = null;
@@ -190,7 +187,6 @@ export const useAuth = navigationRef => {
               table: 'devices',
             },
             async () => {
-              console.log('[Realtime] DELETE signal');
               const latest = await getDevice(storeNumber, deviceCode);
               if (!latest) {
                 handleDevice(null);

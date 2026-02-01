@@ -16,7 +16,7 @@ const OrderView = ({ navigation }) => {
   const { cart, clearCart, removeItem, increaseCount, decreaseCount } =
     useCart();
 
-    const totalPrice = useMemo(() => {
+  const totalPrice = useMemo(() => {
     return cart.reduce((sum, item) => sum + item.totalPrice, 0);
   }, [cart]);
 

@@ -9,10 +9,10 @@ import {
   deleteDevice,
   getStoreSettings,
 } from '../lib/supabase-realtime';
+import { Alert } from 'react-native';
 
 const STORAGE_KEY = 'DEVICE_CODE';
 const DEVICE_NAME_KEY = 'DEVICE_NAME';
-
 
 const generateCode = () => {
   const epochSeconds = Math.floor(Date.now() / 1000);
@@ -27,7 +27,6 @@ const getDeviceName = async () => {
     return 'Unknown';
   }
 };
-
 
 export const getDeviceCode = async () => {
   const deviceName = await getDeviceName();
@@ -59,7 +58,6 @@ export const resetDeviceCode = async storeNumber => {
   }
 };
 
-
 export const ensureDeviceCodeInDatabase = async (
   storeNumber,
   deviceCodeArg = null,
@@ -79,14 +77,6 @@ export const ensureDeviceCodeInDatabase = async (
 
   const storeSettings = await getStoreSettings(storeNumber);
 
-  try {
-    console.log('[ensureDeviceCodeInDatabase] creating device:', {
-      storeNumber,
-      deviceCode,
-      deviceName,
-    });
-  } catch (e) {}
-
   const created = await upsertDevice(storeNumber, deviceCode, {
     device_name: deviceName,
     status: 'wait',
@@ -97,23 +87,14 @@ export const ensureDeviceCodeInDatabase = async (
     created_at: new Date().toISOString(),
   });
 
-  try {
-    console.log(
-      '[ensureDeviceCodeInDatabase] upsert result:',
-      created?.device_code ?? created,
-    );
-  } catch (e) {}
-
   return created;
 };
-
 
 export const subscribeDeviceDeletion = (
   storeNumber,
   deviceCode = null,
   onDelete,
 ) => {
-  
   if (typeof deviceCode === 'function') {
     onDelete = deviceCode;
     deviceCode = null;
@@ -127,8 +108,6 @@ export const subscribeDeviceDeletion = (
   if (deviceCode) filterParts.push(`device_code=eq.${deviceCode}`);
   const filter = filterParts.join(',');
 
-  console.log('[subscribeDeviceDeletion] using filter:', filter);
-
   const channel = supabase
     .channel(channelName)
     .on(
@@ -141,44 +120,18 @@ export const subscribeDeviceDeletion = (
       },
       payload => {
         try {
-          console.log(
-            '[subscribeDeviceDeletion] payload (string):',
-            JSON.stringify(payload),
-          );
-          console.log(
-            '[subscribeDeviceDeletion] payload.old (string):',
-            JSON.stringify(payload?.old),
-          );
-          console.log(
-            '[subscribeDeviceDeletion] payload.old keys:',
-            Object.keys(payload?.old || {}),
-          );
-        } catch (e) {}
-
-        try {
           onDelete(payload, { filtered: !!deviceCode });
         } catch (e) {
-          console.warn('[subscribeDeviceDeletion] onDelete error', e);
+          Alert.alert('디바이스 삭제 핸들러 오류', e.message || e.toString());
         }
       },
     )
-    .subscribe(status => {
-      try {
-        console.log('[subscribeDeviceDeletion] subscribe status:', status);
-      } catch (e) {}
-    });
+    .subscribe();
 
   return () => {
-    try {
-      console.log(
-        '[subscribeDeviceDeletion] removing channel',
-        `device-delete-${storeNumber}`,
-      );
-    } catch (e) {}
     supabase.removeChannel(channel);
   };
 };
-
 
 export const useDeviceCode = storeNumber => {
   const [deviceCode, setDeviceCode] = useState('');

@@ -1,4 +1,3 @@
-
 import { supabase } from './supabase';
 
 export async function getDevice(storeNumber, deviceCode) {
