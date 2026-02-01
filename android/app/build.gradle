@@ -1,0 +1,90 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'com.facebook.react'
+
+project.ext.react = [
+    enableHermes: true,
+    newArchEnabled: true
+]
+
+react {
+    autolinkLibrariesWithApp()
+}
+
+android {
+    namespace 'tech.treeentertainment.treekiosk.v5'
+
+    ndkVersion rootProject.ext.ndkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdk rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        applicationId 'tech.treeentertainment.treekiosk.v5'
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName '5.0.0'
+        manifestPlaceholders = [
+            appAuthRedirectScheme: 'treekiosk.v5'
+        ]
+    }
+
+    buildFeatures {
+        prefab true
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file('treekiosk-v5-key.jks')
+            storePassword System.getenv('ANDROID_KEYSTORE_PASSWORD')
+            keyAlias System.getenv('ANDROID_KEY_ALIAS')
+            keyPassword System.getenv('ANDROID_KEY_PASSWORD')
+        }
+        release {
+            storeFile file('treekiosk-v5-key.jks')
+            storePassword System.getenv('ANDROID_KEYSTORE_PASSWORD')
+            keyAlias System.getenv('ANDROID_KEY_ALIAS')
+            keyPassword System.getenv('ANDROID_KEY_PASSWORD')
+        }
+    }
+
+    splits {
+        abi {
+            enable true
+            reset()
+            include 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+            universalApk true
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile(
+                'proguard-android-optimize.txt'
+            ), 'proguard-rules.pro'
+        }
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile(
+                'proguard-android-optimize.txt'
+            ), 'proguard-rules.pro'
+        }
+    }   
+}
+
+def jscFlavor = 'io.github.react-native-community:jsc-android:+'
+def hermesEnabled = project.ext.react.get('enableHermes', false)
+
+dependencies {
+    implementation('com.facebook.react:react-android')
+
+    if (hermesEnabled) {
+        implementation('com.facebook.react:hermes-android')
+    } else {
+        implementation jscFlavor
+    }
+}

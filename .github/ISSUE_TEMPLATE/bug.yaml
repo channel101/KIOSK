@@ -1,0 +1,105 @@
+name: Bug Report
+description: Report a bug using this form
+title: "🐛 [BUG]: "
+labels:
+  - bug
+
+body:
+  - type: textarea
+    id: when
+    attributes:
+      label: When did it happen?
+      description: When did the bug or error occur?
+    validations:
+      required: true
+
+  - type: textarea
+    id: how
+    attributes:
+      label: How to reproduce?
+      description: Steps to reproduce the issue
+    validations:
+      required: true
+
+  - type: dropdown
+    id: android_version
+    attributes:
+      label: Android version
+      description: Which Android version(s) are affected?
+      multiple: true
+      options:
+        - "5"
+        - "6"
+        - "7"
+        - "8"
+        - "9"
+        - "10"
+        - "11"
+        - "12"
+        - "13"
+        - "14"
+        - "15"
+        - "16"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: app_version
+    attributes:
+      label: App version
+      description: Which app version(s) are affected?
+      multiple: true
+      options:
+        - "v0.0.1"
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why should this be fixed?
+      description: Explain why this issue is important or critical
+    validations:
+      required: true
+
+  - type: textarea
+    id: lastwords
+    attributes:
+      label: Additional information
+      description: Any extra details, logs, or context
+      value: "None"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: check1
+    attributes:
+      label: Confirmation
+      options:
+        - label: I have checked existing issues and confirmed this is a new issue
+          required: true
+
+  - type: checkboxes
+    id: check2
+    attributes:
+      label: Code of conduct
+      options:
+        - label: I confirm that I have not used inappropriate or offensive language
+          required: true
+
+  - type: markdown
+    attributes:
+      value: >
+        If this issue violates GitHub’s Terms of Service, you may be restricted
+        from further contributions. Severe violations may be reported to GitHub.
+
+  - type: markdown
+    attributes:
+      value: >
+        Please make sure you are following GitHub’s rules before submitting.
+
+  - type: markdown
+    attributes:
+      value: >
+        This template was generated with
+        [Issue Forms Creator](https://issue-forms-creator.netlify.app)

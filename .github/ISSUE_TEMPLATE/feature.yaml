@@ -1,0 +1,69 @@
+name: Feature Request
+description: Suggest a new feature or improvement
+title: "👌 [FEATURE]: "
+labels:
+  - enhancement
+
+body:
+  - type: textarea
+    attributes:
+      label: Feature description
+      description: A clear and concise description of the missing feature or problem
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Proposed solution
+      description: Describe the solution you would like to see implemented
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Alternatives considered
+      description: Describe any alternative solutions or workarounds you have considered
+    validations:
+      required: true
+
+  - type: textarea
+    id: lastwords
+    attributes:
+      label: Additional information
+      description: Any extra context, screenshots, or details
+      value: "None"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: check1
+    attributes:
+      label: Confirmation
+      options:
+        - label: I have checked existing issues and confirmed this request is unique
+          required: true
+
+  - type: checkboxes
+    id: check2
+    attributes:
+      label: Code of conduct
+      options:
+        - label: I confirm that I have not used inappropriate or offensive language
+          required: true
+
+  - type: markdown
+    attributes:
+      value: >
+        If this request violates GitHub’s Terms of Service, you may be restricted
+        from further contributions. Severe violations may be reported to GitHub.
+
+  - type: markdown
+    attributes:
+      value: >
+        Please make sure you are following GitHub’s rules before submitting.
+
+  - type: markdown
+    attributes:
+      value: >
+        This template was generated with
+        [Issue Forms Creator](https://issue-forms-creator.netlify.app)

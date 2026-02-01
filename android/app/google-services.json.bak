@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "302800551840",
+    "firebase_url": "https://treeentertainment-default-rtdb.firebaseio.com",
+    "project_id": "treeentertainment",
+    "storage_bucket": "treeentertainment.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:302800551840:android:3f7a176c7cbc6f4fc3eec5",
+        "android_client_info": {
+          "package_name": "tech.treeentertainment.treekiosk.v5"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "302800551840-lhpu0hn5bauuvql76n3q7chbrg1s4js4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "tech.treeentertainment.treekiosk.v5",
+            "certificate_hash": "2d586add611dc4f4558021e045cb69f100f59ed3"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAA1mQUfyukWkpVscbCHJjVDQxbmo_7bRY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

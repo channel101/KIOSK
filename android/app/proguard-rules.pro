@@ -1,0 +1,8 @@
+-keep class com.facebook.react.uimanager.** { *; }
+-keep class com.facebook.react.bridge.** { *; }
+-keep class com.facebook.react.modules.core.** { *; }
+-keep class com.facebook.react.** { *; }
+-keep class com.facebook.soloader.** { *; }
+-keep class com.facebook.react.internal.featureflags.** { *; }
+-dontwarn com.facebook.react.**
+-dontwarn com.facebook.soloader.**

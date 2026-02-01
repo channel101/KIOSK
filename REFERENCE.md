@@ -1,0 +1,6 @@
+-   https://nearform.com/open-source/react-native-app-auth/docs/providers/google/
+-   https://velog.io/@yyy/React-Native-Icon-button-만들기
+-   https://developers.google.com/identity/branding-guidelines
+-   https://dev.to/ajmal_hasan/building-a-customisable-carousel-with-auto-scroll-infinite-loop-pagination-in-react-native-using-reanimated-32f0
+-   https://hianna.tistory.com/837
+-   https://deemmun.tistory.com/68              

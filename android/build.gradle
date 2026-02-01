@@ -1,0 +1,39 @@
+buildscript {
+    ext {
+        buildToolsVersion = '36.0.0'
+        minSdkVersion = 24
+        compileSdkVersion = 36
+        targetSdkVersion = 36
+        ndkVersion = '27.1.12297006'
+        kotlinVersion = '1.9.24'
+        agpVersion = '8.13.0'
+    }
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url = uri(project(':react-native-async-storage_async-storage').file('local_repo'))
+        }
+    }
+    dependencies {
+        classpath("com.android.tools.build:gradle:$agpVersion")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+        classpath('com.facebook.react:react-native-gradle-plugin')
+    }
+}
+
+// Ensure all Android subprojects use the root project's compileSdkVersion
+subprojects {
+    afterEvaluate { subproject ->
+        if (subproject.hasProperty('android')) {
+            try {
+                subproject.android.compileSdk = rootProject.ext.compileSdkVersion
+            } catch (ignored) {
+            }
+            try {
+                subproject.android.compileSdkVersion = rootProject.ext.compileSdkVersion
+            } catch (ignored) {
+            }
+        }
+    }
+}
