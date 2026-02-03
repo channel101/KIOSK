@@ -36,7 +36,7 @@
     "react-native-network-status": "^1.0.12",
     "react-native-reanimated": "^4.1.5",
     "react-native-safe-area-context": "^5.6.2",
-    "react-native-screens": "^4.4.0",
+    "react-native-screens": "^4.21.0",
     "react-native-svg": "^15.15.0",
     "react-native-toast-message": "^2.3.3",
     "react-native-url-polyfill": "^3.0.0",
