@@ -29,11 +29,11 @@
 
 > #### Support Information
 >
-> See: [#2](../../discussions/25)
+> See: [#25](../../discussions/25)
 
 > #### Installation & Download Instructions by Platform
 >
-> See: [#1](../../discussions/24)
+> See: [#24](../../discussions/24)
 
 > ---
 
