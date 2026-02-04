@@ -1,44 +1,85 @@
-## PR Checklist
-Please check if your PR fulfills the following requirements:
+# Pull Request
 
-<!--- [ ] The commit message follows our guidelines: --->
-- [ ] Tests for the changes have been added (for bug fixes / features)
-- [ ] Docs have been added / updated (for bug fixes / features)
+## 📋 Description
 
+<!-- Provide a brief description of the changes in this PR -->
 
-## PR Type
-What kind of change does this PR introduce?
+## 🔗 Related Issues
 
-<!-- Please check the one that applies to this PR using "x". -->
+<!-- Link to related issues using keywords like "Fixes #123", "Closes #456", "Related to #789" -->
 
-- [ ] Bugfix
-- [ ] Feature
-- [ ] Code style update (formatting, local variables)
-- [ ] Refactoring (no functional changes, no api changes)
-- [ ] Build related changes
-- [ ] CI related changes
-- [ ] Documentation content changes
-- [ ] application / infrastructure changes
-- [ ] Other... Please describe:
+Fixes #
 
+## 🎯 Type of Change
 
-## What is the current behavior?
-<!-- Please describe the current behavior that you are modifying, or link to a relevant issue. -->
+<!-- Mark the appropriate option with an "x" -->
 
-Issue Number: N/A
+- [ ] 🐛 Bug fix (non-breaking change which fixes an issue)
+- [ ] ✨ New feature (non-breaking change which adds functionality)
+- [ ] 💥 Breaking change (fix or feature that would cause existing functionality to not work as expected)
+- [ ] 🔧 Refactoring (no functional changes, no API changes)
+- [ ] 📝 Documentation update
+- [ ] 🎨 Code style update (formatting, renaming)
+- [ ] ⚡ Performance improvement
+- [ ] ✅ Test update
+- [ ] 🏗️ Build or CI/CD changes
+- [ ] 🔒 Security fix
+- [ ] 🗑️ Deprecation
+- [ ] 📦 Dependency update
+- [ ] 🎭 Other (please describe):
 
+## 📸 Screenshots/Videos
 
-## What is the new behavior?
+<!-- If applicable, add screenshots or videos to demonstrate the changes -->
+<!-- This is especially important for UI changes -->
 
+<details>
+<summary>Before</summary>
 
+<!-- Add screenshots/videos showing the state before your changes -->
 
-## Does this PR introduce a breaking change?
+</details>
 
-- [ ] Yes
-- [ ] No
+<details>
+<summary>After</summary>
 
+<!-- Add screenshots/videos showing the state after your changes -->
 
-<!-- If this PR contains a breaking change, please describe the impact and migration path for existing applications below. -->
+</details>
 
+## 🧪 Testing
 
-## Other information
+<!-- Describe the tests you ran and how to reproduce them -->
+
+### How to Test
+
+1. 
+2. 
+3. 
+
+### Test Environment
+
+- Device/Emulator:
+- Android Version:
+- App Version:
+
+## ✅ Checklist
+
+<!-- Mark items with an "x" when completed -->
+
+- [ ] My code follows the style guidelines of this project
+- [ ] I have performed a self-review of my own code
+- [ ] I have commented my code, particularly in hard-to-understand areas
+- [ ] I have made corresponding changes to the documentation
+- [ ] My changes generate no new warnings
+- [ ] I have added tests that prove my fix is effective or that my feature works
+- [ ] New and existing unit tests pass locally with my changes
+- [ ] Any dependent changes have been merged and published
+
+## 💬 Additional Notes
+
+<!-- Add any additional information, context, or concerns here -->
+
+---
+
+**Note:** Please ensure all checks pass and required reviewers approve before merging. Thank you for contributing to TREE KIOSK! 🌳

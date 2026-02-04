@@ -1,39 +1,95 @@
 name: Feature Request
 description: Suggest a new feature or improvement
-title: "👌 [FEATURE]: "
+title: "✨ [FEATURE]: "
 labels:
   - enhancement
 
 body:
+  - type: markdown
+    attributes:
+      value: |
+        ## ✨ Feature Request
+        Thank you for suggesting a new feature! Please provide as much detail as possible to help us understand your request.
+
   - type: textarea
     attributes:
-      label: Feature description
-      description: A clear and concise description of the missing feature or problem
+      label: Feature Description
+      description: A clear and concise description of the feature you'd like to see
+      placeholder: Describe the feature...
     validations:
       required: true
 
   - type: textarea
     attributes:
-      label: Proposed solution
+      label: Problem Statement
+      description: Is your feature request related to a problem? Please describe what problem this feature would solve
+      placeholder: I'm always frustrated when...
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Proposed Solution
       description: Describe the solution you would like to see implemented
+      placeholder: I would like to see...
     validations:
       required: true
 
   - type: textarea
     attributes:
-      label: Alternatives considered
+      label: Alternatives Considered
       description: Describe any alternative solutions or workarounds you have considered
+      placeholder: I have also thought about...
     validations:
       required: true
+
+  - type: dropdown
+    attributes:
+      label: Priority/Importance
+      description: How important is this feature to you?
+      options:
+        - "Critical - Blocking my usage"
+        - "High - Very important for my workflow"
+        - "Medium - Would be nice to have"
+        - "Low - Minor improvement"
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ## 💡 Additional Information
+
+  - type: textarea
+    attributes:
+      label: Use Case
+      description: Describe a specific use case or scenario where this feature would be helpful
+      placeholder: For example, when I'm...
+    validations:
+      required: false
+
+  - type: textarea
+    attributes:
+      label: Screenshots/Mockups
+      description: If applicable, add screenshots, mockups, or examples from other apps
+      placeholder: Drag and drop images here, or paste image URLs
+    validations:
+      required: false
 
   - type: textarea
     id: lastwords
     attributes:
-      label: Additional information
-      description: Any extra context, screenshots, or details
+      label: Additional Context
+      description: Any extra context, details, or information that might be helpful
+      placeholder: Add any other context or screenshots about the feature request here...
       value: "None"
     validations:
-      required: true
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ## ✅ Checklist
 
   - type: checkboxes
     id: check1
@@ -42,28 +98,22 @@ body:
       options:
         - label: I have checked existing issues and confirmed this request is unique
           required: true
+        - label: I have provided a clear description of the feature
+          required: true
 
   - type: checkboxes
     id: check2
     attributes:
-      label: Code of conduct
+      label: Code of Conduct
       options:
-        - label: I confirm that I have not used inappropriate or offensive language
+        - label: I agree to follow this project's Code of Conduct and use respectful language
           required: true
 
   - type: markdown
     attributes:
-      value: >
-        If this request violates GitHub’s Terms of Service, you may be restricted
-        from further contributions. Severe violations may be reported to GitHub.
-
-  - type: markdown
-    attributes:
-      value: >
-        Please make sure you are following GitHub’s rules before submitting.
-
-  - type: markdown
-    attributes:
-      value: >
-        This template was generated with
-        [Issue Forms Creator](https://issue-forms-creator.netlify.app)
+      value: |
+        ---
+        **Note:** Feature requests are reviewed regularly. While we can't guarantee implementation of every request,
+        we appreciate your input in making TREE KIOSK better!
+        
+        Thank you for your contribution! 🌳
