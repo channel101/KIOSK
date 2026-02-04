@@ -31,3 +31,9 @@
 
 > #### OS 및 환경별 다운로드 방법
 > See: [#1](../../discussions/1) 
+
+> ---
+
+## 라이선스
+
+[![AGPL-3.0](https://www.gnu.org/graphics/agplv3-with-text-162x68.png)](https://www.gnu.org/licenses/agpl-3.0.html)
