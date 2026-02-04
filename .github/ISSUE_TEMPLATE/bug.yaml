@@ -5,26 +5,61 @@ labels:
   - bug
 
 body:
-  - type: textarea
-    id: when
+  - type: markdown
     attributes:
-      label: When did it happen?
-      description: When did the bug or error occur?
+      value: |
+        ## 🐛 Bug Report
+        Thank you for reporting a bug! Please fill in the details below to help us understand and fix the issue.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is
+      placeholder: Describe the bug...
     validations:
       required: true
 
   - type: textarea
     id: how
     attributes:
-      label: How to reproduce?
-      description: Steps to reproduce the issue
+      label: Steps to Reproduce
+      description: Provide detailed steps to reproduce the issue
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll down to '...'
+        4. See error
     validations:
       required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+      placeholder: Describe what should happen...
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened?
+      placeholder: Describe what actually happened...
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ## 📱 Environment Information
 
   - type: dropdown
     id: android_version
     attributes:
-      label: Android version
+      label: Android Version
       description: Which Android version(s) are affected?
       multiple: true
       options:
@@ -46,7 +81,7 @@ body:
   - type: dropdown
     id: app_version
     attributes:
-      label: App version
+      label: App Version
       description: Which app version(s) are affected?
       multiple: true
       options:
@@ -54,22 +89,53 @@ body:
     validations:
       required: true
 
-  - type: textarea
-    id: why
+  - type: input
+    id: device_model
     attributes:
-      label: Why should this be fixed?
-      description: Explain why this issue is important or critical
+      label: Device Model
+      description: What device model are you using?
+      placeholder: e.g., Samsung Galaxy S21, Pixel 6
     validations:
-      required: true
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ## 📸 Additional Details
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots/Videos
+      description: If applicable, add screenshots or videos to help explain the problem
+      placeholder: Drag and drop images or videos here, or paste image URLs
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs/Error Messages
+      description: If applicable, add relevant log output or error messages
+      placeholder: Paste logs here...
+      render: shell
+    validations:
+      required: false
 
   - type: textarea
     id: lastwords
     attributes:
-      label: Additional information
-      description: Any extra details, logs, or context
+      label: Additional Context
+      description: Any extra details, context, or information that might be helpful
+      placeholder: Add any other context about the problem here...
       value: "None"
     validations:
-      required: true
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ## ✅ Checklist
 
   - type: checkboxes
     id: check1
@@ -78,28 +144,22 @@ body:
       options:
         - label: I have checked existing issues and confirmed this is a new issue
           required: true
+        - label: I have provided all the required information above
+          required: true
 
   - type: checkboxes
     id: check2
     attributes:
-      label: Code of conduct
+      label: Code of Conduct
       options:
-        - label: I confirm that I have not used inappropriate or offensive language
+        - label: I agree to follow this project's Code of Conduct and use respectful language
           required: true
 
   - type: markdown
     attributes:
-      value: >
-        If this issue violates GitHub’s Terms of Service, you may be restricted
-        from further contributions. Severe violations may be reported to GitHub.
-
-  - type: markdown
-    attributes:
-      value: >
-        Please make sure you are following GitHub’s rules before submitting.
-
-  - type: markdown
-    attributes:
-      value: >
-        This template was generated with
-        [Issue Forms Creator](https://issue-forms-creator.netlify.app)
+      value: |
+        ---
+        **Note:** If this issue violates GitHub's Terms of Service, you may be restricted from further contributions. 
+        Please make sure you are following GitHub's community guidelines before submitting.
+        
+        Thank you for helping improve TREE KIOSK! 🌳
