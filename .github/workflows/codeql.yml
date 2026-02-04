@@ -1,0 +1,97 @@
+name: "CodeQL Security Analysis"
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  schedule:
+    # Run at 03:00 UTC every Monday
+    - cron: '0 3 * * 1'
+  workflow_dispatch:
+
+jobs:
+  analyze:
+    name: Analyze (${{ matrix.language }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    permissions:
+      # Required for all workflows
+      security-events: write
+      # Required to fetch internal or private CodeQL packs
+      packages: read
+      # Required for workflows in private repositories to upload results
+      actions: read
+      contents: read
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - language: javascript-typescript
+            build-mode: none
+          - language: kotlin
+            build-mode: manual
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Set up Node.js (required for both JS/TS analysis and Kotlin build)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 25
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install npm dependencies
+        run: npm ci --no-audit --no-fund
+
+      # Set up JDK for Kotlin analysis
+      - name: Set up JDK 21
+        if: matrix.language == 'kotlin'
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+          cache: gradle
+
+      - name: Setup Android SDK
+        if: matrix.language == 'kotlin'
+        uses: android-actions/setup-android@v3
+
+      - name: Accept SDK licenses
+        if: matrix.language == 'kotlin'
+        run: yes | sdkmanager --licenses
+
+      - name: Install required SDK packages
+        if: matrix.language == 'kotlin'
+        run: |
+          sdkmanager "platform-tools" \
+                     "platforms;android-34" \
+                     "build-tools;34.0.0"
+
+      # Initialize CodeQL tools for scanning
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+          build-mode: ${{ matrix.build-mode }}
+          # Specify paths to analyze
+          queries: security-extended,security-and-quality
+
+      # Build the Kotlin code for analysis
+      - name: Build Kotlin code
+        if: matrix.language == 'kotlin'
+        run: |
+          cd android
+          chmod +x ./gradlew
+          ./gradlew assembleDebug --no-daemon
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:${{matrix.language}}"
+          output: sarif-results
+          upload: true
