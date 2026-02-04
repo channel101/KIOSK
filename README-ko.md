@@ -10,8 +10,8 @@
 
 > ## 프로젝트 언어
 
-<a href="https://reactnative.dev"><img alt="react native" src="https://img.shields.io/badge/react-native-61DAFB?style=for-the-badge&logo=react"> 
-<a href="https://firebase.google.com"><img alt="firebase" src="https://img.shields.io/badge/firebase-DD2C00?style=for-the-badge&logo=firebase"> 
+<a href="https://reactnative.dev"><img alt="react native" src="https://img.shields.io/badge/react-native-61DAFB?style=for-the-badge&logo=react">
+<a href="https://supabase.com"><img alt="firebase" src="https://img.shields.io/badge/supabase-3FCF8E?style=for-the-badge&logo=supabase&logoColor=white">
 
 > ## 서비스 상태
 
