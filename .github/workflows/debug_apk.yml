@@ -96,6 +96,16 @@ jobs:
           echo "${{ secrets.REACT_NATIVE_CONFIG_JS_SUPABASE }}" \
             | base64 --decode > src/lib/config.js
 
+      - name: Bundle JavaScript
+        run: |
+          mkdir -p android/app/src/main/assets
+          npx react-native bundle \
+            --platform android \
+            --dev true \
+            --entry-file index.js \
+            --bundle-output android/app/src/main/assets/index.android.bundle \
+            --assets-dest android/app/src/main/res
+
       - name: Build Debug APK
         env:
           ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
