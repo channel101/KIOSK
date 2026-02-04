@@ -13,8 +13,7 @@ import { useCart } from '../../contexts/CartContext';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const OrderView = ({ navigation }) => {
-  const { cart, clearCart, removeItem, increaseCount, decreaseCount } =
-    useCart();
+  const { cart, removeItem, increaseCount, decreaseCount } = useCart();
 
   const totalPrice = useMemo(() => {
     return cart.reduce((sum, item) => sum + item.totalPrice, 0);
