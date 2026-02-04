@@ -26,10 +26,10 @@
 ### 사용법
 
 > #### 지원 정보
-> See: [#2](../../discussions/2) 
+> See: [#25](../../discussions/25) 
 
 > #### OS 및 환경별 다운로드 방법
-> See: [#1](../../discussions/1) 
+> See: [#24](../../discussions/24) 
 
 > ---
 
