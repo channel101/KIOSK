@@ -78,16 +78,14 @@ body:
     validations:
       required: true
 
-  - type: dropdown
+  - type: input
     id: app_version
     attributes:
       label: App Version
       description: Which app version(s) are affected?
-      multiple: true
-      options:
-        - "v0.0.1"
+      placeholder: e.g., v5.0.0 beta
     validations:
-      required: true
+      required: false
 
   - type: input
     id: device_model
