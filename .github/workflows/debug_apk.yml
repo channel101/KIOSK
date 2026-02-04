@@ -6,18 +6,6 @@ on:
       - main
   pull_request:
   workflow_dispatch:
-  workflow_call:
-    secrets:
-      ANDROID_KEYSTORE_BASE64:
-        required: true
-      ANDROID_KEYSTORE_PASSWORD:
-        required: true
-      ANDROID_KEY_ALIAS:
-        required: true
-      ANDROID_KEY_PASSWORD:
-        required: true
-      REACT_NATIVE_CONFIG_JS_SUPABASE:
-        required: true
 
 jobs:
   build-android-debug:
