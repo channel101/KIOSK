@@ -57,16 +57,6 @@ jobs:
       - name: Install npm dependencies
         run: npm ci --no-audit --no-fund
 
-      - name: Bundle JavaScript
-        run: |
-          mkdir -p android/app/src/main/assets
-          npx react-native bundle \
-            --platform android \
-            --dev false \
-            --entry-file index.js \
-            --bundle-output android/app/src/main/assets/index.android.bundle \
-            --assets-dest android/app/src/main/res
-
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
@@ -103,6 +93,16 @@ jobs:
           mkdir -p src/lib
           echo "${{ secrets.REACT_NATIVE_CONFIG_JS_SUPABASE }}" \
             | base64 --decode > src/lib/config.js
+
+      - name: Bundle JavaScript
+        run: |
+          mkdir -p android/app/src/main/assets
+          npx react-native bundle \
+            --platform android \
+            --dev false \
+            --entry-file index.js \
+            --bundle-output android/app/src/main/assets/index.android.bundle \
+            --assets-dest android/app/src/main/res
 
       - name: Build Release APK
         env:
