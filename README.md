@@ -34,3 +34,7 @@
 > #### Installation & Download Instructions by Platform
 >
 > See: [#1](../../discussions/1)
+
+## License
+
+[![AGPL-3.0](https://www.gnu.org/graphics/agplv3-with-text-162x68.png)](https://www.gnu.org/licenses/agpl-3.0.html)
