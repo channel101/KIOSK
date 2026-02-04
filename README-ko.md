@@ -19,7 +19,7 @@
 
 > ## 저작권
 
-[![Static Badge](https://img.shields.io/badge/tree%20entertainment-green?style=for-the-badge&logo=github&label=github)](../../..)
+[![TREE ENTERTAINMENT](https://img.shields.io/badge/tree%20entertainment-green?style=for-the-badge&logo=github&label=github)](../../..)
 
 > ---
 
