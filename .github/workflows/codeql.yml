@@ -37,9 +37,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Set up Node.js for JavaScript/TypeScript analysis
+      # Set up Node.js (required for both JS/TS analysis and Kotlin build)
       - name: Setup Node.js
-        if: matrix.language == 'javascript-typescript'
         uses: actions/setup-node@v4
         with:
           node-version: 25
@@ -47,7 +46,6 @@ jobs:
           cache-dependency-path: package-lock.json
 
       - name: Install npm dependencies
-        if: matrix.language == 'javascript-typescript'
         run: npm ci --no-audit --no-fund
 
       # Set up JDK for Kotlin analysis
