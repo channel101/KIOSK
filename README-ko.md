@@ -1,6 +1,6 @@
 # **TREE KIOSK V5**
 
-[ENGLISH](./README.md) [한국어](./README-ko.md)
+[🇺🇸ENGLISH](./README.md) [🇰🇷한국어](./README-ko.md)
 
 > ---
 
