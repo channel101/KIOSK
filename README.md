@@ -17,8 +17,7 @@
 
 > ## Service Status
 
-[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/treeentertainment/KIOSK/release_apk.yml?style=for-the-badge)](../../actions/workflows/release_apk.yml)
-[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/treeentertainment/KIOSK/release_windows.yml?style=for-the-badge)](../../actions/workflows/release_windows.yml)
+[![CI](https://img.shields.io/github/actions/workflow/status/treeentertainment/KIOSK/debug_apk.yml?style=for-the-badge)](../../actions/workflows/debug_apk.yml)
 
 > ## CopyRight
 
